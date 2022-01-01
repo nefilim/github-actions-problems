@@ -53,7 +53,7 @@ jobs:
           echo "::set-output name=version_tag::$(cat version.txt | tail -1)"
 
   publish:
-    uses: nefilim/test-build/.github/workflows/dummy-publish.yaml@main
+    uses: nefilim/github-actions-problems/.github/workflows/dummy-publish.yaml@main
     needs: release-and-tag
     with:
       version_tag: ${{ needs.release-and-tag.outputs.version_tag }}

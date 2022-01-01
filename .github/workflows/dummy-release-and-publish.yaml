@@ -27,13 +27,13 @@ on:
 
 jobs:
   release-and-tag:
-    uses: nefilim/test-build/.github/workflows/dummy-release.yaml@main
+    uses: nefilim/github-actions-problems/.github/workflows/dummy-release.yaml@main
     with:
       scope: ${{ github.event.inputs.scope }}
       stage: ${{ github.event.inputs.stage }}
 
   publish:
-    uses: nefilim/test-build/.github/workflows/dummy-publish.yaml@main
+    uses: nefilim/github-actions-problems/.github/workflows/dummy-publish.yaml@main
     needs: release-and-tag
     with:
       version_tag: ${{ needs.release-and-tag.outputs.version_tag }}
